@@ -39,4 +39,7 @@ RUN cabal update
 RUN sed -E 's/(-- )?(library-profiling: )False/\2True/' -i .cabal/config
 
 # Update cabal-install
+ENV PATH .cabal/bin:$PATH
 RUN cabal install cabal-install
+RUN cabal install hlint
+RUN cabal install hoogle
